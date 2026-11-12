@@ -9,21 +9,33 @@
     />
     <meta name="theme-color" content="#fbfbf7" />
     <title>Crop and growing segment guide | Orgema</title>
-    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/images/logo.png" type="image/png" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script>
+      (function () {
+        if (localStorage.getItem("orgema-dir") === "rtl") {
+          document.documentElement.setAttribute("dir", "rtl");
+        }
+        if (localStorage.getItem("orgema-theme") === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <header class="site-header">
       <div class="wrap nav">
         <a class="brand" href="index.html"
           ><img
-            src="assets/images/logo.svg"
-            alt="Orgema — Organic Fertilizers and Manure" /></a
+            src="assets/images/logo.png"
+            alt="Orgema — Organic Fertilizers and Manure"
+            class="header-logo" /></a
         ><button class="menu-toggle" aria-label="Open navigation" data-menu>
           ☰
         </button>
         <nav class="nav-links">
           <a class="" href="index.html">Home</a
+          ><a class="" href="home2.html">Home 2</a
           ><a class="" href="about.html">About</a
           ><a class="" href="products.html">Products</a
           ><a class="active" href="crop-solutions.html">Crop Solutions</a
@@ -35,20 +47,32 @@
             class="theme-toggle"
             data-theme
             aria-label="Toggle colour theme"
+            title="Toggle theme"
           >
             ◐</button
+          ><button
+            class="rtl-toggle"
+            data-rtl
+            aria-label="Toggle text direction"
+            title="Switch to RTL"
+          >
+            ⇄ <span class="rtl-text">RTL</span></button
           ><a class="button button-green" href="contact.html#bulk"
-            >Bulk enquiry <span>↗</span></a
+            >Bulk enquiry <span class="arrow-icon">↗</span></a
           >
         </div>
       </div>
       <nav class="mobile-nav" data-mobile>
         <a class="" href="index.html">Home</a
+        ><a class="" href="home2.html">Home 2</a
         ><a class="" href="about.html">About</a
         ><a class="" href="products.html">Products</a
         ><a class="active" href="crop-solutions.html">Crop Solutions</a
         ><a class="" href="usage-guide.html">Usage Guide</a
-        ><a class="" href="contact.html">Contact</a>
+        ><a class="" href="contact.html">Contact</a
+        ><a class="mobile-cta button button-green" href="contact.html#bulk"
+          >Bulk enquiry <span class="arrow-icon">↗</span></a
+        >
       </nav>
     </header>
     <main>
@@ -234,29 +258,58 @@
     <footer class="footer">
       <div class="wrap footer-grid">
         <div>
-          <img src="assets/images/logo.svg" alt="Orgema" class="footer-logo" />
+          <img src="assets/images/logo.png" alt="Orgema" class="footer-logo" />
           <p>
             Organic input information for growers, farms and agricultural
             businesses. Product availability and specifications are confirmed on
             enquiry.
           </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="LinkedIn" class="social-icon">in</a>
+            <a href="#" aria-label="Twitter or X" class="social-icon">𝕏</a>
+            <a href="#" aria-label="Facebook" class="social-icon">f</a>
+            <a href="#" aria-label="Instagram" class="social-icon">ig</a>
+          </div>
         </div>
         <div>
           <h4>Explore</h4>
           <a href="products.html">Product range</a
           ><a href="crop-solutions.html">Crop solutions</a
-          ><a href="usage-guide.html">Usage guide</a>
+          ><a href="usage-guide.html">Usage guide</a
+          ><a href="home2.html">Home 2 (Modern)</a>
         </div>
         <div>
           <h4>Connect</h4>
-          <a href="contact.html#bulk">Bulk enquiry</a
+          <a href="about.html">About Orgema</a
+          ><a href="contact.html#bulk">Bulk enquiry</a
           ><a href="contact.html#distributor">Distributor enquiry</a
-          ><a href="about.html">Our approach</a>
+          ><a href="contact.html">Contact us</a>
+        </div>
+        <div>
+          <h4>Newsletter</h4>
+          <p>Receive seasonal crop advice and organic input updates.</p>
+          <form class="footer-newsletter" data-demo>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              required
+              aria-label="Email address"
+            />
+            <button type="submit" class="button button-green">
+              Subscribe <span class="arrow-icon">↗</span>
+            </button>
+          </form>
         </div>
       </div>
       <div class="wrap footer-bottom">
-        © 2026 Orgema. Product claims, certifications and application rates must
-        be verified against current product labels.
+        <span>© 2026 Orgema. Product claims, certifications and application rates must be verified against current product labels.</span>
+        <div class="footer-legal">
+          <a href="usage-guide.html">Privacy Policy</a>
+          <span class="sep">·</span>
+          <a href="usage-guide.html">Terms of Supply</a>
+          <span class="sep">·</span>
+          <a href="contact.html">Help & FAQ</a>
+        </div>
       </div>
     </footer>
     <script src="assets/js/main.js"></script>
