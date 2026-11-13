@@ -29,46 +29,39 @@ menu?.addEventListener("click", () => {
   );
 });
 
-// RTL Direction Functionality
-function setDirection(isRtl) {
-  if (isRtl) {
-    html.setAttribute("dir", "rtl");
-    body.setAttribute("dir", "rtl");
-    localStorage.setItem("orgema-dir", "rtl");
-    rtlToggles.forEach((btn) => {
-      btn.innerHTML = '⇄ <span class="rtl-text">LTR</span>';
-      btn.setAttribute("aria-label", "Switch to Left-to-Right layout");
-      btn.setAttribute("title", "Switch to LTR");
-      btn.classList.add("active");
-    });
-  } else {
-    html.removeAttribute("dir");
-    body.removeAttribute("dir");
-    localStorage.setItem("orgema-dir", "ltr");
-    rtlToggles.forEach((btn) => {
-      btn.innerHTML = '⇄ <span class="rtl-text">RTL</span>';
-      btn.setAttribute("aria-label", "Switch to Right-to-Left layout");
-      btn.setAttribute("title", "Switch to RTL");
-      btn.classList.remove("active");
-    });
+// Clear any legacy RTL preference so website always defaults to clean LTR layout
+localStorage.removeItem("orgema-dir");
+html.removeAttribute("dir");
+body.removeAttribute("dir");
+
+// Optional RTL toggle listener if present in the DOM
+if (rtlToggles.length > 0) {
+  function setDirection(isRtl) {
+    if (isRtl) {
+      html.setAttribute("dir", "rtl");
+      body.setAttribute("dir", "rtl");
+      rtlToggles.forEach((btn) => {
+        btn.textContent = "LTR";
+        btn.classList.add("active");
+      });
+    } else {
+      html.removeAttribute("dir");
+      body.removeAttribute("dir");
+      rtlToggles.forEach((btn) => {
+        btn.textContent = "RTL";
+        btn.classList.remove("active");
+      });
+    }
   }
-}
 
-// Initial RTL setup from saved preference
-if (localStorage.getItem("orgema-dir") === "rtl") {
-  setDirection(true);
-} else {
-  setDirection(false);
-}
-
-// Event listeners for RTL toggles
-rtlToggles.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    const isRtl = html.getAttribute("dir") === "rtl";
-    setDirection(!isRtl);
+  rtlToggles.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const isRtl = html.getAttribute("dir") === "rtl";
+      setDirection(!isRtl);
+    });
   });
-});
+}
 
 // Demo forms handler
 document.querySelectorAll("[data-demo]").forEach((form) =>
