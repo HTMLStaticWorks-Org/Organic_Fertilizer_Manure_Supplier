@@ -9,10 +9,13 @@
     />
     <meta name="theme-color" content="#fbfbf7" />
     <title>Organic soil inputs for considered growing | Orgema</title>
-    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <script>
       (function () {
+        if (localStorage.getItem("orgema-dir") === "rtl") {
+          document.documentElement.setAttribute("dir", "rtl");
+        }
         if (localStorage.getItem("orgema-theme") === "dark") {
           document.documentElement.classList.add("dark");
         }
@@ -48,7 +51,8 @@
             title="Toggle theme"
           >
             ◐</button
-          ><a class="button button-green" href="contact.html#bulk"
+          >
+          <button class="rtl-toggle" data-rtl type="button" aria-label="Toggle text direction" title="Switch to RTL">RTL</button><a class="button button-green" href="contact.html#bulk"
             >Bulk enquiry</a
           >
         </div>
@@ -64,6 +68,10 @@
         ><a class="mobile-cta button button-green" href="contact.html#bulk"
           >Bulk enquiry</a
         >
+        <div class="mobile-tools">
+          <button type="button" class="mobile-tool" data-theme aria-label="Toggle colour theme">◐</button>
+          <button type="button" class="mobile-tool" data-rtl aria-label="Toggle text direction">RTL</button>
+        </div>
       </nav>
     </header>
     <main>
@@ -241,19 +249,163 @@
           </div>
         </div>
       </section>
-      <section class="closing-banner">
-        <div class="wrap closing-inner">
-          <div>
-            <span class="kicker">For farms, growers and trade buyers</span>
-            <h2>Have a requirement to discuss?</h2>
+      <section class="section section-tint">
+        <div class="wrap">
+          <div class="section-intro">
+            <span class="kicker">Seasonal rhythm</span>
+            <h2>Organic inputs matched to the cropping calendar.</h2>
             <p>
-              Send the basics and the Orgema team can help clarify the next
-              step.
+              Field preparation, active vegetative growth and orchard cycles each
+              call for different forms of organic matter and nutrient support.
             </p>
           </div>
-          <a class="button button-light" href="contact.html#bulk"
-            >Make an enquiry</a
-          >
+          <div class="info-cards-3">
+            <article class="info-card">
+              <span class="tag">Kharif &amp; Monsoon</span>
+              <h3>Basal soil conditioning</h3>
+              <p>
+                Incorporate well-cured vermicompost and neem cake during land
+                preparation to build soil structure and moisture balance before
+                sowing.
+              </p>
+              <ul class="check-list">
+                <li>Supports early root establishment</li>
+                <li>Improves aeration in heavy soils</li>
+              </ul>
+            </article>
+            <article class="info-card">
+              <span class="tag">Rabi &amp; Winter</span>
+              <h3>Steady nutrient availability</h3>
+              <p>
+                Pair mature organic manures with microbial bio-NPK consortia
+                when cooler soil temperatures slow natural nutrient release.
+              </p>
+              <ul class="check-list">
+                <li>Supports rhizosphere activity</li>
+                <li>Fits irrigated grain and vegetable beds</li>
+              </ul>
+            </article>
+            <article class="info-card">
+              <span class="tag">Orchards &amp; Perennials</span>
+              <h3>Root-zone &amp; canopy care</h3>
+              <p>
+                Combine ring-basin manure applications with periodic seaweed
+                extract drenches or foliar sprays aligned to flowering and
+                fruit set.
+              </p>
+              <ul class="check-list">
+                <li>Suited to drip and basin irrigation</li>
+                <li>Aligned with post-harvest recovery</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap">
+          <div class="section-intro">
+            <span class="kicker">Why growers choose Orgema</span>
+            <h2>Built around clarity, consistency and practical handling.</h2>
+          </div>
+          <div class="pillars-grid-4">
+            <article class="pillar-box">
+              <span class="pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
+              <h3>Traceable feedstock</h3>
+              <p>Clear source declarations for every compost, cake and liquid batch.</p>
+            </article>
+            <article class="pillar-box">
+              <span class="pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+              <h3>Moisture &amp; sieve checked</h3>
+              <p>Screened texture and controlled moisture for uniform field spreading.</p>
+            </article>
+            <article class="pillar-box">
+              <span class="pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </span>
+              <h3>Label transparency</h3>
+              <p>Batch-level composition, shelf life and handling notes without hype.</p>
+            </article>
+            <article class="pillar-box">
+              <span class="pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </span>
+              <h3>Flexible dispatch</h3>
+              <p>From trial bags for nurseries to full-load bulk supply for estates.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section section-tint">
+        <div class="wrap">
+          <div class="section-intro">
+            <span class="kicker">Field voices</span>
+            <h2>Trusted by farms, nurseries and regional distributors.</h2>
+          </div>
+          <div class="quotes-grid">
+            <article class="quote-card">
+              <p class="quote-text">
+                “Having clear moisture and feedstock details before ordering made
+                it much easier to plan our pre-monsoon orchard basal dose.”
+              </p>
+              <div class="quote-meta">
+                <strong>Ramesh Deshmukh</strong>
+                <span>Pomegranate &amp; Citrus Grower · Nashik</span>
+              </div>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">
+                “Our retail dealers appreciate straightforward batch labels and
+                predictable bag weights across every seasonal dispatch.”
+              </p>
+              <div class="quote-meta">
+                <strong>Ananya Kulkarni</strong>
+                <span>Agri-Input Distributor · Pune</span>
+              </div>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">
+                “The sieved vermicompost mixes cleanly into our nursery seedling
+                trays without clumping or uneven moisture pockets.”
+              </p>
+              <div class="quote-meta">
+                <strong>Vikram Patel</strong>
+                <span>Commercial Vegetable Nursery · Anand</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap">
+          <div class="cta-split-card">
+            <div class="cta-split-body">
+              <span class="kicker">For farms, growers and trade buyers</span>
+              <h2>Have a requirement to discuss?</h2>
+              <p>
+                Send the basics—crop, acreage, preferred pack size and delivery
+                window—and the Orgema team will help clarify the next step.
+              </p>
+              <div class="button-row">
+                <a class="button button-light" href="contact.html#bulk"
+                  >Make an enquiry</a
+                >
+                <a class="button button-outline-light" href="products.html"
+                  >Browse products</a
+                >
+              </div>
+            </div>
+            <div class="cta-split-media">
+              <img
+                src="assets/images/farmer-field.jpg"
+                alt="Farmer inspecting healthy organic crop rows"
+              />
+              <span class="cta-media-badge">Direct farm &amp; bulk supply</span>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -320,6 +472,12 @@
         </div>
       </div>
     </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

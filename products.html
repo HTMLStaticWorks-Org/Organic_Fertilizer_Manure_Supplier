@@ -9,10 +9,13 @@
     />
     <meta name="theme-color" content="#fbfbf7" />
     <title>Organic fertilizer and manure range | Orgema</title>
-    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <script>
       (function () {
+        if (localStorage.getItem("orgema-dir") === "rtl") {
+          document.documentElement.setAttribute("dir", "rtl");
+        }
         if (localStorage.getItem("orgema-theme") === "dark") {
           document.documentElement.classList.add("dark");
         }
@@ -48,7 +51,8 @@
             title="Toggle theme"
           >
             ◐</button
-          ><a class="button button-green" href="contact.html#bulk"
+          >
+          <button class="rtl-toggle" data-rtl type="button" aria-label="Toggle text direction" title="Switch to RTL">RTL</button><a class="button button-green" href="contact.html#bulk"
             >Bulk enquiry</a
           >
         </div>
@@ -64,6 +68,10 @@
         ><a class="mobile-cta button button-green" href="contact.html#bulk"
           >Bulk enquiry</a
         >
+        <div class="mobile-tools">
+          <button type="button" class="mobile-tool" data-theme aria-label="Toggle colour theme">◐</button>
+          <button type="button" class="mobile-tool" data-rtl aria-label="Toggle text direction">RTL</button>
+        </div>
       </nav>
     </header>
     <main>
@@ -159,6 +167,26 @@
               </ul>
             </div>
           </article>
+          <article class="detail-row" id="humic">
+            <img
+              src="assets/images/green-farm.jpg"
+              alt="Healthy cultivated soil and green crop rows"
+            />
+            <div>
+              <span class="tag">Organic soil conditioner</span>
+              <h2>Humic &amp; Fulvic Acid Granules</h2>
+              <p>
+                Mineral-derived humic substances formulated to support cation
+                exchange capacity, moisture retention and root-zone nutrient
+                uptake alongside organic manures.
+              </p>
+              <ul class="check-list">
+                <li>Confirm humic and fulvic percentage on the batch sheet.</li>
+                <li>Check granule mesh size for broadcasting or drip blend.</li>
+                <li>Review compatibility with existing basal fertilizers.</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </section>
       <section class="section section-tint">
@@ -196,6 +224,82 @@
                 Consider crop, soil test, local conditions and agronomic advice.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap">
+          <div class="section-intro">
+            <span class="kicker">Packaging &amp; dispatch</span>
+            <h2>Pack formats built for field handling and storage.</h2>
+            <p>
+              Choose pack sizes that match your storage space, application
+              equipment and transport schedule.
+            </p>
+          </div>
+          <div class="info-cards-3">
+            <article class="info-card">
+              <span class="tag">Solid manures &amp; cakes</span>
+              <h3>25 kg &amp; 50 kg HDPE bags</h3>
+              <p>
+                Moisture-lined woven bags with clear batch labels for easy manual
+                spreading and stacked warehouse storage.
+              </p>
+              <ul class="check-list">
+                <li>Laminated inner liner for moisture control</li>
+                <li>Batch &amp; net-weight stamped on every bag</li>
+              </ul>
+            </article>
+            <article class="info-card">
+              <span class="tag">Liquids &amp; bio-inoculants</span>
+              <h3>1 L, 5 L &amp; 20 L jerrycans</h3>
+              <p>
+                Tamper-evident HDPE containers designed for clean measuring into
+                knapsack sprayers, drench tanks and drip venturis.
+              </p>
+              <ul class="check-list">
+                <li>UV-protected food-grade containers</li>
+                <li>Clear expiry &amp; storage temperature notes</li>
+              </ul>
+            </article>
+            <article class="info-card">
+              <span class="tag">Estates &amp; bulk buyers</span>
+              <h3>500 kg &amp; 1-ton jumbo bags</h3>
+              <p>
+                Forklift-ready FIBC bulk bags or palletized multi-bag loads for
+                large acreages and regional distributor hubs.
+              </p>
+              <ul class="check-list">
+                <li>Lower packaging waste per ton</li>
+                <li>Coordinated full-truckload scheduling</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section section-tint">
+        <div class="wrap">
+          <div class="section-intro">
+            <span class="kicker">Lot documentation</span>
+            <h2>What accompanies every confirmed dispatch.</h2>
+          </div>
+          <div class="verify-grid">
+            <div>
+              <b>Batch analysis sheet</b>
+              <p>Moisture, pH, organic carbon and declared nutrient parameters.</p>
+            </div>
+            <div>
+              <b>Label &amp; dosage guide</b>
+              <p>Crop-stage directions, dilution ratios and compatibility cautions.</p>
+            </div>
+            <div>
+              <b>Storage &amp; handling note</b>
+              <p>Shade, dry-floor stacking and shelf-life preservation instructions.</p>
+            </div>
+            <div>
+              <b>Lot traceability code</b>
+              <p>Production date and dispatch reference for farm audit records.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -285,6 +389,11 @@
         </div>
       </div>
     </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

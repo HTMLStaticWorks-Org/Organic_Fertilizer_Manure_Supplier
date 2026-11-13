@@ -9,10 +9,13 @@
     />
     <meta name="theme-color" content="#fbfbf7" />
     <title>Crop and growing segment guide | Orgema</title>
-    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <script>
       (function () {
+        if (localStorage.getItem("orgema-dir") === "rtl") {
+          document.documentElement.setAttribute("dir", "rtl");
+        }
         if (localStorage.getItem("orgema-theme") === "dark") {
           document.documentElement.classList.add("dark");
         }
@@ -48,7 +51,8 @@
             title="Toggle theme"
           >
             ◐</button
-          ><a class="button button-green" href="contact.html#bulk"
+          >
+          <button class="rtl-toggle" data-rtl type="button" aria-label="Toggle text direction" title="Switch to RTL">RTL</button><a class="button button-green" href="contact.html#bulk"
             >Bulk enquiry</a
           >
         </div>
@@ -64,6 +68,10 @@
         ><a class="mobile-cta button button-green" href="contact.html#bulk"
           >Bulk enquiry</a
         >
+        <div class="mobile-tools">
+          <button type="button" class="mobile-tool" data-theme aria-label="Toggle colour theme">◐</button>
+          <button type="button" class="mobile-tool" data-rtl aria-label="Toggle text direction">RTL</button>
+        </div>
       </nav>
     </header>
     <main>
@@ -231,18 +239,96 @@
           </div>
         </div>
       </section>
-      <section class="closing-banner">
-        <div class="wrap closing-inner">
-          <div>
-            <span class="kicker">Share your crop context</span>
-            <h2>Let’s understand your growing setup.</h2>
+      <section class="section section-tint">
+        <div class="wrap">
+          <div class="section-intro">
+            <span class="kicker">Growth-stage pairing</span>
+            <h2>Matching input categories to field windows.</h2>
             <p>
-              Include crop, area, location and current stage in your enquiry.
+              While exact rates depend on your soil test and product label, most
+              farms organize organic inputs around three practical stages.
             </p>
           </div>
-          <a class="button button-light" href="contact.html"
-            >Send crop details</a
-          >
+          <div class="info-cards-3">
+            <article class="info-card">
+              <span class="tag">Stage 01 · Pre-sowing</span>
+              <h3>Basal soil preparation</h3>
+              <p>
+                Incorporate mature vermicompost, neem cake or humic granules
+                into the root zone before planting to build organic carbon and
+                water-holding capacity.
+              </p>
+              <ul class="check-list">
+                <li>Focus on soil structure &amp; organic matter</li>
+                <li>Check moisture before incorporation</li>
+              </ul>
+            </article>
+            <article class="info-card">
+              <span class="tag">Stage 02 · Vegetative</span>
+              <h3>Root flush &amp; canopy build</h3>
+              <p>
+                Support active root branching and leaf development with
+                drip-compatible bio-NPK consortia or diluted seaweed extract
+                based on label intervals.
+              </p>
+              <ul class="check-list">
+                <li>Align with irrigation &amp; weather windows</li>
+                <li>Verify tank-mix compatibility first</li>
+              </ul>
+            </article>
+            <article class="info-card">
+              <span class="tag">Stage 03 · Reproductive</span>
+              <h3>Flowering &amp; fruit set</h3>
+              <p>
+                Use targeted foliar or drench applications where appropriate to
+                support crop vigour without over-applying nitrogen late in the
+                cycle.
+              </p>
+              <ul class="check-list">
+                <li>Follow crop-specific label precautions</li>
+                <li>Record lot numbers in your field log</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap">
+          <div class="cta-crop-checklist">
+            <div class="cta-crop-left">
+              <span class="kicker">Share your crop context</span>
+              <h2>Let’s understand your growing setup.</h2>
+              <p>
+                Include these four details in your enquiry so our team can point
+                you to the right product specifications and pack formats.
+              </p>
+              <a class="button button-green" href="contact.html"
+                >Send crop details</a
+              >
+            </div>
+            <div class="cta-crop-grid">
+              <div class="cta-crop-item">
+                <span>01</span>
+                <strong>Crop &amp; variety</strong>
+                <p>Field crop, orchard, vegetable or nursery</p>
+              </div>
+              <div class="cta-crop-item">
+                <span>02</span>
+                <strong>Cultivated area</strong>
+                <p>Acres, hectares or polyhouse bed count</p>
+              </div>
+              <div class="cta-crop-item">
+                <span>03</span>
+                <strong>Location &amp; water</strong>
+                <p>District, climate and irrigation method</p>
+              </div>
+              <div class="cta-crop-item">
+                <span>04</span>
+                <strong>Current stage</strong>
+                <p>Land prep, vegetative, flowering or post-harvest</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -309,6 +395,11 @@
         </div>
       </div>
     </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

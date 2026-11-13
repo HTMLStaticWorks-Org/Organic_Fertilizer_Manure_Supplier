@@ -1,24 +1,30 @@
 const body = document.body,
   html = document.documentElement,
-  theme = document.querySelector("[data-theme]"),
+  themeToggles = document.querySelectorAll("[data-theme]"),
   menu = document.querySelector("[data-menu]"),
   mobile = document.querySelector("[data-mobile]"),
   rtlToggles = document.querySelectorAll("[data-rtl]");
 
-// Dark mode initialization & toggle
-if (localStorage.getItem("orgema-theme") === "dark") {
-  body.classList.add("dark");
-  html.classList.add("dark");
-  if (theme) theme.textContent = "☀";
+// Dark mode
+function applyTheme(isDark) {
+  body.classList.toggle("dark", isDark);
+  html.classList.toggle("dark", isDark);
+  themeToggles.forEach((btn) => {
+    if (btn.classList.contains("mobile-tool")) {
+      btn.textContent = isDark ? "☀" : "◐";
+    } else {
+      btn.textContent = isDark ? "☀" : "◐";
+    }
+  });
 }
-
-theme?.addEventListener("click", () => {
-  body.classList.toggle("dark");
-  html.classList.toggle("dark");
-  const isDark = body.classList.contains("dark");
-  localStorage.setItem("orgema-theme", isDark ? "dark" : "light");
-  theme.textContent = isDark ? "☀" : "◐";
-});
+applyTheme(localStorage.getItem("orgema-theme") === "dark");
+themeToggles.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    const isDark = !html.classList.contains("dark");
+    localStorage.setItem("orgema-theme", isDark ? "dark" : "light");
+    applyTheme(isDark);
+  }),
+);
 
 // Mobile menu toggle
 menu?.addEventListener("click", () => {
@@ -29,39 +35,31 @@ menu?.addEventListener("click", () => {
   );
 });
 
-// Clear any legacy RTL preference so website always defaults to clean LTR layout
-localStorage.removeItem("orgema-dir");
-html.removeAttribute("dir");
-body.removeAttribute("dir");
-
-// Optional RTL toggle listener if present in the DOM
-if (rtlToggles.length > 0) {
-  function setDirection(isRtl) {
-    if (isRtl) {
-      html.setAttribute("dir", "rtl");
-      body.setAttribute("dir", "rtl");
-      rtlToggles.forEach((btn) => {
-        btn.textContent = "LTR";
-        btn.classList.add("active");
-      });
-    } else {
-      html.removeAttribute("dir");
-      body.removeAttribute("dir");
-      rtlToggles.forEach((btn) => {
-        btn.textContent = "RTL";
-        btn.classList.remove("active");
-      });
-    }
+// RTL / LTR direction
+function setDirection(isRtl) {
+  if (isRtl) {
+    html.setAttribute("dir", "rtl");
+    body.setAttribute("dir", "rtl");
+  } else {
+    html.removeAttribute("dir");
+    body.removeAttribute("dir");
   }
-
+  localStorage.setItem("orgema-dir", isRtl ? "rtl" : "ltr");
   rtlToggles.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const isRtl = html.getAttribute("dir") === "rtl";
-      setDirection(!isRtl);
-    });
+    btn.textContent = btn.classList.contains("mobile-tool")
+      ? isRtl ? "LTR" : "RTL"
+      : isRtl ? "LTR" : "RTL";
+    btn.classList.toggle("active", isRtl);
+    btn.setAttribute("title", isRtl ? "Switch to LTR" : "Switch to RTL");
   });
 }
+setDirection(localStorage.getItem("orgema-dir") === "rtl");
+rtlToggles.forEach((btn) =>
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    setDirection(html.getAttribute("dir") !== "rtl");
+  }),
+);
 
 // Demo forms handler
 document.querySelectorAll("[data-demo]").forEach((form) =>
@@ -77,3 +75,25 @@ document.querySelectorAll("[data-demo]").forEach((form) =>
     form.reset();
   }),
 );
+
+// Back to top floating button
+const backToTop = document.getElementById("backToTop");
+if (backToTop) {
+  const toggleBackToTop = () => {
+    if (window.scrollY > 300) {
+      backToTop.classList.add("visible");
+    } else {
+      backToTop.classList.remove("visible");
+    }
+  };
+
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}

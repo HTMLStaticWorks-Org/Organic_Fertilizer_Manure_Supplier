@@ -9,10 +9,13 @@
     />
     <meta name="theme-color" content="#fbfbf7" />
     <title>Organic input usage and handling guide | Orgema</title>
-    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <script>
       (function () {
+        if (localStorage.getItem("orgema-dir") === "rtl") {
+          document.documentElement.setAttribute("dir", "rtl");
+        }
         if (localStorage.getItem("orgema-theme") === "dark") {
           document.documentElement.classList.add("dark");
         }
@@ -48,7 +51,8 @@
             title="Toggle theme"
           >
             ◐</button
-          ><a class="button button-green" href="contact.html#bulk"
+          >
+          <button class="rtl-toggle" data-rtl type="button" aria-label="Toggle text direction" title="Switch to RTL">RTL</button><a class="button button-green" href="contact.html#bulk"
             >Bulk enquiry</a
           >
         </div>
@@ -64,6 +68,10 @@
         ><a class="mobile-cta button button-green" href="contact.html#bulk"
           >Bulk enquiry</a
         >
+        <div class="mobile-tools">
+          <button type="button" class="mobile-tool" data-theme aria-label="Toggle colour theme">◐</button>
+          <button type="button" class="mobile-tool" data-rtl aria-label="Toggle text direction">RTL</button>
+        </div>
       </nav>
     </header>
     <main>
@@ -292,6 +300,11 @@
         </div>
       </div>
     </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
